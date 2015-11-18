@@ -17,6 +17,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.barry.clayscoretracker.Fragments.ImportFragment;
+import com.example.barry.clayscoretracker.Fragments.MainFragment;
 import com.example.barry.clayscoretracker.R;
 
 public class MainActivity extends AppCompatActivity
@@ -69,9 +71,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -84,7 +84,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camara) {
-            fm.beginTransaction().replace(R.id.content_frame, new com.example.barry.clayscoretracker.ImportFragment()).commit();
+            fm.beginTransaction().replace(R.id.content_frame, new ImportFragment()).commit();
+            setTitle(R.string.Stand1);
 
         } else if (id == R.id.nav_gallery) {
 
