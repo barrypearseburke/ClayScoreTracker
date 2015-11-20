@@ -17,8 +17,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.barry.clayscoretracker.Fragments.ImportFragment;
 import com.example.barry.clayscoretracker.Fragments.MainFragment;
+import com.example.barry.clayscoretracker.Fragments.Stand1;
 import com.example.barry.clayscoretracker.R;
 
 public class MainActivity extends AppCompatActivity
@@ -76,26 +76,28 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
 
     public boolean onNavigationItemSelected(MenuItem item) {
        FragmentManager fm = getFragmentManager();
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
-            fm.beginTransaction().replace(R.id.content_frame, new ImportFragment()).commit();
+        if (id == R.id.Stand1) {
+            fm.beginTransaction().replace(R.id.content_frame, new Stand1()).commit();
             setTitle(R.string.Stand1);
 
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.Stand2) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.Stand3) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.Stand4) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.Stand5) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.ViewScores) {
+
+        }
+        else if (id == R.id.New) {
 
         }
 
