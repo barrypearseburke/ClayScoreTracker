@@ -1,6 +1,7 @@
 package com.example.barry.clayscoretracker.Fragments;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -10,8 +11,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.example.barry.clayscoretracker.MainActivity;
 import com.example.barry.clayscoretracker.R;
 
+import static android.app.PendingIntent.getActivity;
+
+//references https://www.youtube.com/watch?v=eAPFgC9URqc
 public class Stand1 extends Fragment {
     ListView mList;
 
@@ -33,7 +38,9 @@ public class Stand1 extends Fragment {
         String[] pair = {"Pair1","Pair2","Pair3","Pair4","Pair5"};
 
         //build adapter
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.row_layout,pair);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.row_layout,R.id.textrow,pair);
 
         mList.setAdapter(adapter);
-    }}
+    }
+}
+
