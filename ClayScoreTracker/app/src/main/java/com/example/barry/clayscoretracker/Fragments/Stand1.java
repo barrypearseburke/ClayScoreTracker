@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.example.barry.clayscoretracker.CustomArrayAdaptor;
 import com.example.barry.clayscoretracker.MainActivity;
 import com.example.barry.clayscoretracker.R;
 
@@ -35,10 +36,10 @@ public class Stand1 extends Fragment {
     }
 
     private void populateListView() {
-        String[] pair = {"Pair1","Pair2","Pair3","Pair4","Pair5"};
+        String[] pair = {"Pair 1","Pair 2","Pair 3","Pair 4","Pair 5"};
 
         //build adapter
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.row_layout,R.id.textrow,pair);
+        ArrayAdapter<String> adapter = new CustomArrayAdaptor(getActivity(),pair);
 
         mList.setAdapter(adapter);
     }
