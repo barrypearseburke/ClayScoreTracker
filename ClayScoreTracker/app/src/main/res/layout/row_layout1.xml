@@ -16,8 +16,8 @@
         android:longClickable="false" />
 
     <CheckBox
-        android:layout_width="40dp"
-        android:layout_height="38dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/Checkbox1"
         android:button="@drawable/checkboxcustom"
         android:layout_marginLeft="50dp" />
@@ -25,8 +25,8 @@
 
         android:button="@drawable/checkboxcustom"
         android:id="@+id/Checkbox2"
-        android:layout_width="38dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="50dp" />
 
 </LinearLayout>
