@@ -18,6 +18,7 @@ import com.example.barry.clayscoretracker.R;
 import static android.app.PendingIntent.getActivity;
 
 //references https://www.youtube.com/watch?v=eAPFgC9URqc
+//references https://www.thenewboston.com/videos.php?cat=6&video=16740
 public class Stand1 extends Fragment {
     ListView mList;
 

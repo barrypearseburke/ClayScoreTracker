@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+//references https://www.thenewboston.com/videos.php?cat=6&video=16740
 
 /**
  * Created by Barry on 24/11/2015.
@@ -29,4 +31,5 @@ public class CustomArrayAdaptor extends ArrayAdapter<String>{
         Text.setText(stringelement);
         return CustomView;
     }
+
 }
