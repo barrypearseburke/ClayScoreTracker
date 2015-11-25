@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent" android:layout_height="match_parent">
 
 <ListView
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:id="@+id/Stand1list">
+    android:layout_height="446dp"
+    android:id="@+id/Stand1list"
+    android:scrollIndicators="right"
+    android:smoothScrollbar="true">
 
 
 </ListView>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Score To Databse"
+        android:id="@+id/sendtodb"
+        android:textSize="12dp"
+        android:clickable="true"
+        android:layout_below="@+id/Stand1list"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="8/10"
+        android:id="@+id/Score"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
+        android:layout_alignBottom="@+id/sendtodb"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp" />
 
 
-
-
-</LinearLayout>
+</RelativeLayout>
