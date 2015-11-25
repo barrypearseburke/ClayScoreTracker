@@ -33,3 +33,8 @@ public class CustomArrayAdaptor extends ArrayAdapter<String>{
     }
 
 }
+//todo make checkboxes add up and place number in textview score
+//todo put in db manager//remember update
+// todo send score to db
+// todo dump data to listview
+//todo splash screen if time.
