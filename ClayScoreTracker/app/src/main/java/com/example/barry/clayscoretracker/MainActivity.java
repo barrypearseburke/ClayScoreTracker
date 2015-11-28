@@ -24,6 +24,9 @@ import com.example.barry.clayscoretracker.R;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
         DrawerLayout mDrawerLayout;
+        public DatabaseHelper myDb;
+        public static long Courseid;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +34,8 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+         myDb = new DatabaseHelper(this); //db helper class created.
+        Courseid= myDb.newCourseDBInstert();//This will add an insert and return the id for the user in this session
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

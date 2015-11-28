@@ -20,21 +20,11 @@ android:layout_width="match_parent" android:layout_height="match_parent">
         android:textSize="12dp"
         android:clickable="true"
         android:layout_below="@+id/Stand1list"
+
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="8/10"
-        android:id="@+id/Score"
-        android:layout_marginLeft="33dp"
-        android:layout_marginStart="33dp"
-        android:layout_alignBottom="@+id/sendtodb"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp" />
+
 
 
 </RelativeLayout>
