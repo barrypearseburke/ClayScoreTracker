@@ -14,6 +14,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.barry.clayscoretracker.CustomArrayAdaptor;
 import com.example.barry.clayscoretracker.MainActivity;
@@ -27,9 +28,7 @@ public class Stand1 extends Fragment implements View.OnClickListener{
     ListView mList;
     public View root;
     Button btnsend;
-    public long courseid = MainActivity.Courseid;
-
-
+    public static Long CourseID = MainActivity.Courseid;
 
 
 
@@ -42,7 +41,7 @@ public class Stand1 extends Fragment implements View.OnClickListener{
         mList = (ListView) root.findViewById(R.id.Stand1list);
         btnsend = (Button) root.findViewById(R.id.sendtodb);
         btnsend.setOnClickListener(this);
-        Log.i("Courseid", courseid + "");
+        Log.i("Stand1", CourseID  + "");
         return root;
 
     }
@@ -66,9 +65,21 @@ public class Stand1 extends Fragment implements View.OnClickListener{
     public void SendtoDb(){
 
         int score = CustomArrayAdaptor.returnvalueofchecks();
-
-            Log.i("Stand1", score + "");
+        Boolean update =MainActivity.myDb.updateData(String.valueOf(CourseID), score, getTitle());
+        Log.i("sent", update + "");
+        if (update ==true){
+        Toast.makeText(getActivity(),"Data Updated",Toast.LENGTH_SHORT).show();}
+        else{
+            Toast.makeText(getActivity(),"Data NOT Updated",Toast.LENGTH_SHORT).show();
         }
+
+        }
+
+
+    private String getTitle() {
+        String title = MainActivity.title;
+        return title;
+    }
 
 
     @Override

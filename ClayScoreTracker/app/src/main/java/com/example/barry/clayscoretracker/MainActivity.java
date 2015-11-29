@@ -7,6 +7,8 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,11 +23,20 @@ import com.example.barry.clayscoretracker.Fragments.MainFragment;
 import com.example.barry.clayscoretracker.Fragments.Stand1;
 import com.example.barry.clayscoretracker.R;
 
+import java.security.PublicKey;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
         DrawerLayout mDrawerLayout;
-        public DatabaseHelper myDb;
+        public static DatabaseHelper myDb;
         public static long Courseid;
+
+        public static String title ="";
+
+
+        //converts the Courseid which is an long to a string ,so it can be sent to db
+        //CourseID = Long.toString(Courseid);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +47,7 @@ public class MainActivity extends AppCompatActivity
 
          myDb = new DatabaseHelper(this); //db helper class created.
         Courseid= myDb.newCourseDBInstert();//This will add an insert and return the id for the user in this session
-
+        Log.i("Main long", Courseid + "");
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -80,23 +91,38 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+
+
     @Override
 
     public boolean onNavigationItemSelected(MenuItem item) {
-       FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getFragmentManager();
         int id = item.getItemId();
 
         if (id == R.id.Stand1) {
             fm.beginTransaction().replace(R.id.content_frame, new Stand1()).commit();
-            setTitle(R.string.Stand1);
+            title ="STAND1";
+            setTitle("Stand 1");
 
         } else if (id == R.id.Stand2) {
+            fm.beginTransaction().replace(R.id.content_frame, new Stand1()).commit();
+            title ="STAND2";
+            setTitle("Stand 2");
 
         } else if (id == R.id.Stand3) {
 
+            title ="STAND3";
+            setTitle("Stand 3");
+
         } else if (id == R.id.Stand4) {
 
+            title ="STAND4";
+            setTitle("Stand 4");
+
         } else if (id == R.id.Stand5) {
+
+            title ="STAND5";
+            setTitle("Stand 5");
 
         } else if (id == R.id.ViewScores) {
 

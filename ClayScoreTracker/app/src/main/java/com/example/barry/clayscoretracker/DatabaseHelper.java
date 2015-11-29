@@ -11,6 +11,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "ScoreTrackerDB.db";
@@ -58,6 +59,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         long id =insertData(0, 0, 0, 0, 0);
         SQLiteDatabase db = this.getWritableDatabase();
+        Log.i("dbmanager", id+ "");
         return id;
     }
 
@@ -72,14 +74,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
-    public boolean updateData(String id,int  stand1var, int stand2var, int stand3var, int stand4var, int stand5var){
+    public boolean updateData(String id,int  stand1var, String COL){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2,stand1var);
-        contentValues.put(COL_3,stand2var);
-        contentValues.put(COL_4, stand3var);
-        contentValues.put(COL_5,stand4var);
-        contentValues.put(COL_6,stand5var);
+        contentValues.put(COL,stand1var);
         db.update(TABLE_NAME,contentValues,"ID = ?",new String[] {id});
         return true;
 
