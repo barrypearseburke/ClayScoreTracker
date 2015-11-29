@@ -95,7 +95,6 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-
     @Override
 
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -134,13 +133,20 @@ public class MainActivity extends AppCompatActivity
             fm.beginTransaction().replace(R.id.content_frame, new ViewScores()).commit();
         }
         else if (id == R.id.New) {
-
-        myDb.newCourseDBInstert();
+            newcourse();
             Toast.makeText(this, "New Course Set Up", Toast.LENGTH_SHORT).show();
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public static void newcourse(){
+
+        Log.i("courseid",Courseid+"");
+        Courseid= myDb.newCourseDBInstert();
+        Log.i("courseid", Courseid + "");
     }
 }

@@ -71,7 +71,7 @@ public class ViewScores extends Fragment {
                     @Override
                     public void onClick(View v) {
                         MainActivity.myDb.dellall();
-                        MainActivity.myDb.newCourseDBInstert();
+                        MainActivity.newcourse();
                             Toast.makeText(getActivity(), "all rows deleted and new course set up", Toast.LENGTH_SHORT).show();
 
 

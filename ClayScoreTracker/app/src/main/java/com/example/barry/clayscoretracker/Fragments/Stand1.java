@@ -28,7 +28,6 @@ public class Stand1 extends Fragment implements View.OnClickListener{
     ListView mList;
     public View root;
     Button btnsend;
-    public static Long CourseID = MainActivity.Courseid;
 
 
 
@@ -42,7 +41,10 @@ public class Stand1 extends Fragment implements View.OnClickListener{
         mList = (ListView) root.findViewById(R.id.Stand1list);
         btnsend = (Button) root.findViewById(R.id.sendtodb);
         btnsend.setOnClickListener(this);
-        Log.i("Stand1", CourseID  + "");
+
+
+        Log.i("Stand1",  MainActivity.Courseid + "");
+
         return root;
 
     }
@@ -68,9 +70,9 @@ public class Stand1 extends Fragment implements View.OnClickListener{
     public void SendtoDb(){
     //sends users score to db , by doing an update
         int score = CustomArrayAdaptor.returnvalueofchecks();
-        Log.i("courseid",CourseID+"");
 
-        Boolean update =MainActivity.myDb.updateData(String.valueOf(CourseID), score, getTitle());
+
+        Boolean update =MainActivity.myDb.updateData(String.valueOf(MainActivity.Courseid), score, getTitle());
         Log.i("sent", update + "");
         if (update ==true){
         Toast.makeText(getActivity(),"Data Updated",Toast.LENGTH_SHORT).show();}
@@ -98,8 +100,6 @@ public class Stand1 extends Fragment implements View.OnClickListener{
         }
     }
 
-    public void getCourseID() {
-        CourseID = MainActivity.Courseid;
-    }
+
 }
 
