@@ -1,6 +1,6 @@
 //Project navbar references - Basic android studio template and
 //https://mega.nz/#!6ZtFlCrY!rgucXgxwi456O6LZbWe8XDNPZJ1fTVV7SWzu2FZEEJk to get fragments working
-
+// Main Activity - Calls every instances
 package com.example.barry.clayscoretracker;
 
 import android.app.FragmentManager;
@@ -18,9 +18,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.example.barry.clayscoretracker.Fragments.MainFragment;
 import com.example.barry.clayscoretracker.Fragments.Stand1;
+import com.example.barry.clayscoretracker.Fragments.ViewScores;
 import com.example.barry.clayscoretracker.R;
 
 import java.security.PublicKey;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //oncreate set up
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -58,7 +60,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         FragmentManager fm = getFragmentManager();
-        fm.beginTransaction().replace(R.id.content_frame, new MainFragment()).commit();
+        fm.beginTransaction().replace(R.id.content_frame, new ViewScores()).commit();
+        setTitle("Scores");
     }
 
     @Override
@@ -96,39 +99,44 @@ public class MainActivity extends AppCompatActivity
     @Override
 
     public boolean onNavigationItemSelected(MenuItem item) {
+        //nav drawer
         FragmentManager fm = getFragmentManager();
         int id = item.getItemId();
 
-        if (id == R.id.Stand1) {
+        if (id == R.id.stand1) {
+            //starts new fragment and changes titlebar
             fm.beginTransaction().replace(R.id.content_frame, new Stand1()).commit();
             title ="STAND1";
             setTitle("Stand 1");
 
-        } else if (id == R.id.Stand2) {
+        } else if (id == R.id.stand2) {
             fm.beginTransaction().replace(R.id.content_frame, new Stand1()).commit();
             title ="STAND2";
             setTitle("Stand 2");
 
-        } else if (id == R.id.Stand3) {
-
+        } else if (id == R.id.stand3) {
+            fm.beginTransaction().replace(R.id.content_frame, new Stand1()).commit();
             title ="STAND3";
             setTitle("Stand 3");
 
-        } else if (id == R.id.Stand4) {
-
+        } else if (id == R.id.stand4) {
+            fm.beginTransaction().replace(R.id.content_frame, new Stand1()).commit();
             title ="STAND4";
             setTitle("Stand 4");
 
-        } else if (id == R.id.Stand5) {
-
+        } else if (id == R.id.stand5) {
+            fm.beginTransaction().replace(R.id.content_frame, new Stand1()).commit();
             title ="STAND5";
             setTitle("Stand 5");
 
         } else if (id == R.id.ViewScores) {
-
+            setTitle("Scores");
+            fm.beginTransaction().replace(R.id.content_frame, new ViewScores()).commit();
         }
         else if (id == R.id.New) {
 
+        myDb.newCourseDBInstert();
+            Toast.makeText(this, "New Course Set Up", Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

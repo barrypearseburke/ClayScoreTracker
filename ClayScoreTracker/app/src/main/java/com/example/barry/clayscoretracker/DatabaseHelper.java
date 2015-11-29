@@ -3,6 +3,10 @@
  */
 package com.example.barry.clayscoretracker;
 
+//references https://www.youtube.com/watch?v=cp2rL3sAFmI
+
+// This class manages the database
+// it is the only class that will directly CRUD to db
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -30,17 +34,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT,STAND1 INTEGER,STAND2 INTEGER,STAND3 INTEGER,STAND4 INTEGER,STAND5 INTEGER,SHOOTINGDATE datetime current_DATE)");
+        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT,STAND1 INTEGER,STAND2 INTEGER,STAND3 INTEGER,STAND4 INTEGER,STAND5 INTEGER,SHOOTINGDATE DEFAULT CURRENT_DATE)");
         //this creates tabel with a auto increment id , and also ,when the insert is done, it auto puts in time.
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
+        onCreate(db);
+    }
+    public void dellall() {
+        //deletes table
+        SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         onCreate(db);
     }
 
+
     public long insertData(int stand1var, int stand2var, int stand3var, int stand4var, int stand5var) {
+        //inserts data to db
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2,stand1var);
@@ -55,7 +68,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return result;
     }
     public long  newCourseDBInstert(){
-        //this is simpleused to create a new course.
+        //this create a new course.
 
         long id =insertData(0, 0, 0, 0, 0);
         SQLiteDatabase db = this.getWritableDatabase();
@@ -69,12 +82,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Cursor getAllData(){
+        //select all statment
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("SELECT * FROM "+TABLE_NAME,null);
         return res;
     }
 
     public boolean updateData(String id,int  stand1var, String COL){
+        //updates db
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL,stand1var);

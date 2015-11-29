@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/Stand1" android:icon="@android:drawable/ic_menu_camera"
+        <item android:id="@+id/stand1" android:icon="@android:drawable/ic_menu_camera"
             android:title="Stand 1" />
-        <item android:id="@+id/Stand2" android:icon="@android:drawable/ic_menu_gallery"
+        <item android:id="@+id/stand2" android:icon="@android:drawable/ic_menu_gallery"
             android:title="Stand 2" />
-        <item android:id="@+id/Stand3" android:icon="@android:drawable/ic_menu_slideshow"
+        <item android:id="@+id/stand3" android:icon="@android:drawable/ic_menu_slideshow"
             android:title="Stand 3" />
-        <item android:id="@+id/Stand4" android:icon="@android:drawable/ic_menu_manage"
+        <item android:id="@+id/stand4" android:icon="@android:drawable/ic_menu_manage"
             android:title="Stand 4" />
-        <item android:id="@+id/Stand5" android:icon="@android:drawable/ic_menu_manage"
+        <item android:id="@+id/stand5" android:icon="@android:drawable/ic_menu_manage"
             android:title="Stand 5" />
     </group>
 

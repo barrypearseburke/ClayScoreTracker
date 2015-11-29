@@ -17,7 +17,7 @@ import org.w3c.dom.Text;
  * Created by Barry on 24/11/2015.
  */
 public class CustomArrayAdaptor extends ArrayAdapter<String> {
-    public static int checkAccumulator;
+    public static int checkAccumulator; //static var to count true checkboxes.
 
     public CustomArrayAdaptor(Context context, String[] Pairs) {
         super(context, R.layout.row_layout1, Pairs);
@@ -26,6 +26,7 @@ public class CustomArrayAdaptor extends ArrayAdapter<String> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        //inflates view
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View CustomView = inflater.inflate(R.layout.row_layout1, parent, false);
         final String stringelement = getItem(position);
@@ -33,6 +34,7 @@ public class CustomArrayAdaptor extends ArrayAdapter<String> {
         Text.setText(stringelement);
 
 // several references  from http://stackoverflow.com/questions/33928979/how-to-count-the-number-of-checkboxes-ticked-which-is-inside-a-listview/33929416?
+        //inflates checkboxes
         CheckBox checkBox1 = (CheckBox) CustomView.findViewById(R.id.Checkbox1);
         CheckBox checkBox2 = (CheckBox) CustomView.findViewById(R.id.Checkbox2);
 
@@ -40,7 +42,7 @@ public class CustomArrayAdaptor extends ArrayAdapter<String> {
         CompoundButton.OnCheckedChangeListener checkListener = new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
+                //on checkbox state changed.
                 countCheck(isChecked);
 
                 Log.i("CustomArray", checkAccumulator + "");
@@ -61,7 +63,7 @@ public class CustomArrayAdaptor extends ArrayAdapter<String> {
 
 
     private void countCheck(boolean isChecked) {
-
+    //checks to see the new state of checkbox is.if it is false or true. If true add one to counter. If false ,-1 to counter
         checkAccumulator += isChecked ? 1 : -1 ;
     }//stackoverflow references end
     public static int returnvalueofchecks(){
@@ -70,8 +72,3 @@ public class CustomArrayAdaptor extends ArrayAdapter<String> {
     }
 
 }
-//todo make checkboxes add up and place number in textview score
-//todo put in db manager//remember update
-// todo send score to db
-// todo dump data to listview
-//todo splash screen if time.

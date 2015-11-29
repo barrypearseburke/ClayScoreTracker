@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent" android:layout_height="match_parent">
-
-<ListView
-    android:layout_width="fill_parent"
-    android:layout_height="446dp"
-    android:id="@+id/Stand1list"
-    android:scrollIndicators="right"
-    android:smoothScrollbar="true">
-
-
-</ListView>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send Score To Databse"
-        android:id="@+id/sendtodb"
-        android:textSize="12dp"
-        android:clickable="true"
-        android:layout_below="@+id/Stand1list"
-
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+    <!-- stand1 xml file. This contains a list view and a button to send data to db -->
+   <ListView
+       android:layout_width="fill_parent"
+       android:layout_height="446dp"
+       android:id="@+id/Stand1list"
+       android:scrollIndicators="right"
+       android:smoothScrollbar="true">
 
 
+   </ListView>
+
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Send Score To Databse"
+           android:id="@+id/sendtodb"
+           android:textSize="12dp"
+           android:clickable="true"
+           android:layout_below="@+id/Stand1list"
+
+           android:layout_alignParentRight="true"
+           android:layout_alignParentEnd="true" />
 
 
-</RelativeLayout>
+
+
+   </RelativeLayout>

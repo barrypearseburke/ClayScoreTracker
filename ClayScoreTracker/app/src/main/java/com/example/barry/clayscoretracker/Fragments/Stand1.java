@@ -37,6 +37,7 @@ public class Stand1 extends Fragment implements View.OnClickListener{
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // inflates view and initializes list
          root = inflater.inflate(R.layout.stand1,container,false);
         mList = (ListView) root.findViewById(R.id.Stand1list);
         btnsend = (Button) root.findViewById(R.id.sendtodb);
@@ -48,23 +49,27 @@ public class Stand1 extends Fragment implements View.OnClickListener{
 
 
     public void onActivityCreated(Bundle savedInstanceState)
-    {
+        {// when activity created ,call pop list
         super.onActivityCreated(savedInstanceState);
         populateListView();
     }
 
     private void populateListView() {
+
+        // sends data to array adaptor to populates list
         String[] pair = {"Pair 1","Pair 2","Pair 3","Pair 4","Pair 5"};
 
         //build adapter
         ArrayAdapter<String> adapter = new CustomArrayAdaptor(getActivity(),pair);
 
-        mList.setAdapter(adapter);
+        mList.setAdapter(adapter);//set adaptor
     }
 
     public void SendtoDb(){
-
+    //sends users score to db , by doing an update
         int score = CustomArrayAdaptor.returnvalueofchecks();
+        Log.i("courseid",CourseID+"");
+
         Boolean update =MainActivity.myDb.updateData(String.valueOf(CourseID), score, getTitle());
         Log.i("sent", update + "");
         if (update ==true){
@@ -77,6 +82,7 @@ public class Stand1 extends Fragment implements View.OnClickListener{
 
 
     private String getTitle() {
+        //gets the title of the current stand
         String title = MainActivity.title;
         return title;
     }
@@ -90,6 +96,10 @@ public class Stand1 extends Fragment implements View.OnClickListener{
                 break;
 
         }
+    }
+
+    public void getCourseID() {
+        CourseID = MainActivity.Courseid;
     }
 }
 
