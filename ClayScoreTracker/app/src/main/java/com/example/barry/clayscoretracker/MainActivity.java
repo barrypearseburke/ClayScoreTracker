@@ -104,6 +104,8 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.stand1) {
             //starts new fragment and changes titlebar
+            //this happens everytime the item in the drawer changes. Data will be loss. (Prob shouldnt have a new fragement. rather create them at the start and reuse. as to keep scores.
+            //using stand1 each time as each stand is the same
             fm.beginTransaction().replace(R.id.content_frame, new Stand1()).commit();
             title ="STAND1";
             setTitle("Stand 1");
